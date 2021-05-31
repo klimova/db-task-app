@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^25.3.0",
     "@angular/animations": "~10.2.4",
     "@angular/common": "~10.2.4",
     "@angular/compiler": "~10.2.4",
@@ -19,6 +20,10 @@
     "@angular/platform-browser": "~10.2.4",
     "@angular/platform-browser-dynamic": "~10.2.4",
     "@angular/router": "~10.2.4",
+    "ag-grid-angular": "^25.3.0",
+    "ag-grid-community": "^25.3.0",
+    "ag-grid-enterprise": "^25.3.0",
+    "ngx-csv-parser": "0.0.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

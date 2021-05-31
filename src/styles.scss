@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-alpine {
+    @include ag-theme-alpine((
+        odd-row-background-color: #CFD8DC
+    ));
+}
+
+app-root {
+    .controls-wrapper {
+        height: 100%; 
+        display: flex; 
+        flex-direction: column;
+        margin: 10px 0;
+        .controls {
+            margin-top: 5px;
+        }
+        .controls button {
+            margin-right: 5px;
+        }
+        .controls-info {
+            margin: 20px  0; 
+        }
+        .controls-info span {
+            margin-right: 5px;
+        }
+    }
+}
+
+
