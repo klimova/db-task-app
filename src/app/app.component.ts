@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { NgxCsvParser } from 'ngx-csv-parser';
 import { NgxCSVParserError } from 'ngx-csv-parser';
@@ -27,18 +27,41 @@ export class AppComponent {
 
   constructor(private ngxCsvParser: NgxCsvParser) {
     this.columnDefs = [
-      { field: 'Code', sortable: true, filter: true },
-      { field: 'Description', sortable: true, filter: true },
-      { field: 'Level', sortable: true, filter: true },
-      { field: 'Order', sortable: true, filter: true },
-      { field: 'Parent', sortable: true, filter: true },
-      { field: 'Reference', sortable: true, filter: true },
-      { field: 'Rulings', sortable: true, filter: true },
-      { field: 'This item also includes', sortable: true, filter: true },
-      { field: 'This item excludes', sortable: true, filter: true },
-      { field: 'This item includes', sortable: true, filter: true },
+      { field: 'Code' },
+      {
+        field: 'Description',
+        width: 220,
+      },
+      { field: 'Level', rowGroup: true, hide: true },
+      {
+        field: 'Order',
+        aggFunc: 'sum',
+        enableValue: true,
+      },
+      { field: 'Parent' },
+      { field: 'Reference' },
+      {
+        field: 'Rulings',
+        width: 220,
+      },
+      {
+        field: 'This item also includes',
+        width: 220,
+      },
+      {
+        field: 'This item excludes',
+        width: 220,
+      },
+      {
+        field: 'This item includes',
+        width: 220,
+      },
     ];
+
     this.defaultColDef = {
+      width: 100,
+      sortable: true,
+      editable: true,
       resizable: true,
       filter: true,
     };
