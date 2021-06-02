@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { NgxCsvParser } from 'ngx-csv-parser';
 import { NgxCSVParserError } from 'ngx-csv-parser';
@@ -32,11 +32,15 @@ export class AppComponent {
         field: 'Description',
         width: 220,
       },
-      { field: 'Level', rowGroup: true, hide: true },
+      {
+        field: 'Level',
+        // rowGroup: true,
+        // hide: true,
+      },
       {
         field: 'Order',
-        aggFunc: 'sum',
-        enableValue: true,
+        // aggFunc: 'sum',
+        // enableValue: true,
       },
       { field: 'Parent' },
       { field: 'Reference' },
@@ -73,7 +77,6 @@ export class AppComponent {
 
   fileChangeListener($event: any): void {
     const files = $event.srcElement.files;
-
     this.ngxCsvParser
       .parse(files[0], { header: true, delimiter: ',' })
       .pipe()
