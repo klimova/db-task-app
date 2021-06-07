@@ -20,12 +20,38 @@ export class AppComponent {
   };
   modules = [ClientSideRowModelModule];
   private gridApi;
-  columnDefs;
-  defaultColDef;
-  rowSelection;
-  paginationPageSize;
+  public columnDefs;
+  public columnDefs2;
+  public defaultColDef;
+  public rowSelection;
+  public paginationPageSize;
+  public rowData2;
 
   constructor(private ngxCsvParser: NgxCsvParser) {
+    this.columnDefs2 = [
+      {
+        field: 'make', // rowGroup: true, hide: true
+      },
+      { field: 'model' },
+      {
+        field: 'price',
+        aggFunc: (params) => {
+          let sum = 0;
+          params.values.forEach((value) => (sum += value));
+          console.log('Sum = ' + sum);
+          return sum;
+        },
+      },
+      // { field: 'price', aggFunc: 'sum' },
+    ];
+
+    this.rowData2 = [
+      { make: 'Toyota', model: 'Celica', price: 35000 },
+      { make: 'Ford', model: 'Mondeo', price: 32000 },
+      { make: 'Porsche', model: 'Boxter', price: 72000 },
+      { make: 'Toyota', model: 'Prius', price: 25000 },
+    ];
+
     this.columnDefs = [
       { field: 'Code' },
       {
